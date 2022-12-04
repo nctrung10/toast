@@ -5,47 +5,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toast Message</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-        crossorigin="anonymous" />
+    <title>Bem - Toast Message</title>
+
+    <link rel="stylesheet" href="./bem-css/toast-btn.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- CSS -->
-    <link rel="stylesheet" href="toast.css">
 </head>
 
 <body>
-    <div id="toast"></div>
-  
     <div>
-        <div onclick="showSuccessToast()" class="btn btn--success">Show Success Toast</div>
-        <div onclick="showErrorToast()" class="btn btn--danger">Show Error Toast</div>
+        <div id="toast"></div>
     </div>
 
+    <div>
+        <div onclick="showSuccess()" class="btn btn--success">Congrats</div>
+        <div onclick="showWarning()" class="btn btn--warning">Be Careful</div>
+        <div onclick="showError()" class="btn btn--danger">Error</div>
+    </div>
+
+
     <script>
-        // call toast via button
-        function showSuccessToast() {
+        function showSuccess() {
             toast({
                 title: 'Success',
-                message: 'Congra! You have pressed the success message.',
+                message: 'Login successfully.',
                 type: 'success',
-                duration: 5000
+                timeOut: 2000,
             })
         }
 
-        function showErrorToast() {
+        function showWarning() {
+            toast({
+                title: 'Warning',
+                message: 'There was a problem with the login process.',
+                type: 'warning',
+                timeOut: 3000,
+            })
+        }
+
+        function showError() {
             toast({
                 title: 'Error',
-                message: 'Oops! You have pressed the error message.',
+                message: 'Login failed. Please try again.',
                 type: 'error',
-                duration: 5000
+                timeOut: 3000,
             })
         }
     </script>
-
-
+    
     <!-- Javascript -->
     <script  src="./main.js"></script>
 </body>
